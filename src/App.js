@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React, { Children, useState } from "react";
+import React, { useState } from "react";
 import CounterDisplay from "./components/CounterDisplay";
 import CounterButton from "./components/CounterButton";
 
