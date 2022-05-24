@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 const CounterDisplay = props => {
     return (
         <div>

@@ -23,11 +23,11 @@ function App() {
   };
 
   const isCounterValueZero = () => {
-    if(counterValue == 0) {
+    if (counterValue == 0) {
       return true;
     }
     return false;
-  }
+  };
 
   return (
     <div className="App">
