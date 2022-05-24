@@ -7,17 +7,17 @@ import CounterButton from "./components/CounterButton";
 function App() {
   const [counterValue, setCounterValue] = useState(0);
 
-  const plusButtonHandler = (event) => {
+  const plusButtonHandler = () => {
     setCounterValue(counterValue + 1);
     console.log("pressed plus button!");
   };
 
-  const minusButtonHandler = (event) => {
+  const minusButtonHandler = () => {
     setCounterValue(counterValue - 1);
     console.log("pressed minus button!");
   };
 
-  const resetButtonHandler = (event) => {
+  const resetButtonHandler = () => {
     setCounterValue(0);
     console.log("pressed reset button!");
   };
