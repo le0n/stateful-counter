@@ -1,17 +1,30 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CounterDisplay from "./components/CounterDisplay";
 import CounterButton from "./components/CounterButton";
+import { db } from "./FirebaseConfig";
+import { doc, getDoc, setDoc} from "firebase/firestore";
 
 function App() {
   const [counterValue, setCounterValue] = useState(0);
+  const docPointer = doc(db, "counter", "number");
 
-  const plusButtonHandler = () => {
+  useEffect(() => {
+    const getNumber = async () => {
+      const data = await getDoc(docPointer);
+      setCounterValue(Object.values(data.data())[0])
+      console.log(Object.values(data.data())[0]);
+    };
+    getNumber();
+  }, [])
+
+  const plusButtonHandler = async () => {
     setCounterValue(counterValue + 1);
+
     console.log("pressed plus button!");
   };
 
-  const minusButtonHandler = () => {
+  const minusButtonHandler = async () => {
     setCounterValue(counterValue - 1);
     console.log("pressed minus button!");
   };
