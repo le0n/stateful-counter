@@ -3,35 +3,37 @@ import React, { useState, useEffect } from "react";
 import CounterDisplay from "./components/CounterDisplay";
 import CounterButton from "./components/CounterButton";
 import { db } from "./FirebaseConfig";
-import { doc, getDoc, setDoc} from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 function App() {
   const [counterValue, setCounterValue] = useState(0);
   const docPointer = doc(db, "counter", "number");
+  const getNumber = async () => {
+    const data = await getDoc(docPointer);
+    setCounterValue(Object.values(data.data())[0]);
+  };
 
   useEffect(() => {
-    const getNumber = async () => {
-      const data = await getDoc(docPointer);
-      setCounterValue(Object.values(data.data())[0])
-      console.log(Object.values(data.data())[0]);
-    };
     getNumber();
-  }, [])
+  });
 
+  //keep seperate state
   const plusButtonHandler = async () => {
+    await setDoc(docPointer, { value: counterValue + 1 });
     setCounterValue(counterValue + 1);
-
-    console.log("pressed plus button!");
+    //console.log("pressed plus button!");
   };
 
   const minusButtonHandler = async () => {
+    await setDoc(docPointer, { value: counterValue - 1 });
     setCounterValue(counterValue - 1);
-    console.log("pressed minus button!");
+    //console.log("pressed minus button!");
   };
 
-  const resetButtonHandler = () => {
+  const resetButtonHandler = async () => {
+    await setDoc(docPointer, { value: 0 });
     setCounterValue(0);
-    console.log("pressed reset button!");
+    //console.log("pressed reset button!");
   };
 
   const isCounterValueZero = () => {
