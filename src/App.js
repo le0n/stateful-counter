@@ -17,7 +17,7 @@ function App() {
     getNumber();
   });
 
-  //keep seperate state
+  //useState to force re-render
   const plusButtonHandler = async () => {
     await setDoc(docPointer, { value: counterValue + 1 });
     setCounterValue(counterValue + 1);
