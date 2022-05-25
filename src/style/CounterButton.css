@@ -1,1 +1,6 @@
-/* No CSS *//*# sourceMappingURL=CounterButton.css.map */
+
+.counter-button {
+    max-width: 50px;
+    max-height: 25px;
+    position:relative;
+}

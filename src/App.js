@@ -45,18 +45,24 @@ function App() {
 
   return (
     <div className="App">
-      <CounterDisplay counterValue={counterValue} />
-      <div className="counter-button-container">
-        <CounterButton
-          text="+"
-          onClickHandler={plusButtonHandler}
-          disabled={false}
-        ></CounterButton>
+      <div className="counter-container">
+        <div className="increment-button-container">
         <CounterButton
           text="-"
           onClickHandler={minusButtonHandler}
           disabled={isCounterValueZero()}
         ></CounterButton>
+        </div>
+        <CounterDisplay counterValue={counterValue} />
+        <div className="increment-button-container">
+        <CounterButton
+          text="+"
+          onClickHandler={plusButtonHandler}
+          disabled={false}
+        ></CounterButton>
+        </div>
+      </div>
+      <div className="reset-container">
         <CounterButton
           text="reset"
           onClickHandler={resetButtonHandler}

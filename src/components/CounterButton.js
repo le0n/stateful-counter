@@ -1,3 +1,4 @@
+import "../style/CounterButton.css"
 const CounterButton = (props) => {
   const onClickHandler = () => {
     props.onClickHandler();
