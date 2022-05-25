@@ -1,4 +1,4 @@
-import "./App.css";
+import "./style/App.css";
 import React, { useState, useEffect } from "react";
 import CounterDisplay from "./components/CounterDisplay";
 import CounterButton from "./components/CounterButton";
@@ -37,7 +37,7 @@ function App() {
   };
 
   const isCounterValueZero = () => {
-    if (counterValue == 0) {
+    if (counterValue === 0) {
       return true;
     }
     return false;
@@ -46,7 +46,7 @@ function App() {
   return (
     <div className="App">
       <CounterDisplay counterValue={counterValue} />
-      <div>
+      <div className="counter-button-container">
         <CounterButton
           text="+"
           onClickHandler={plusButtonHandler}

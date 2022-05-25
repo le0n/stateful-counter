@@ -1,6 +1,8 @@
+import "../style/CounterDisplay.css";
+
 const CounterDisplay = props => {
     return (
-        <div>
+        <div className="counter-display-container">
             <h1>{props.counterValue}</h1>
         </div>
     );

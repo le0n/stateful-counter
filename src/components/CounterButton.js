@@ -4,7 +4,11 @@ const CounterButton = (props) => {
   };
 
   return (
-    <button onClick={onClickHandler} disabled={props.disabled}>
+    <button
+      onClick={onClickHandler}
+      disabled={props.disabled}
+      className="counter-button"
+    >
       {props.text}
     </button>
   );
